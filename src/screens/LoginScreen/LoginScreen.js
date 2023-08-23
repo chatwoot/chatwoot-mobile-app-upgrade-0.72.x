@@ -91,7 +91,7 @@ const LoginScreenComponent = ({ navigation }) => {
   });
   const onSubmit = data => {
     const { email, password } = data;
-    // dispatch(authActions.doLogin({ email, password }));
+    dispatch(authActions.doLogin({ email, password }));
   };
 
   const changeLanguageModal = useRef(null);

@@ -1,80 +1,76 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<p align="center">
+  <img src="https://s3.us-west-2.amazonaws.com/gh-assets.chatwoot.com/brand.svg" alt="Woot-logo" width="240">
 
-# Getting Started
+  <div align="center">Mobile app for chatwoot platform. Built with React Native</div>
+  <div align="center">Chatwoot is an opensource alternative to Intercom, Zendesk, Drift, Crisp etc.</div>
+</p>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+---
 
-## Step 1: Start the Metro Server
+<p align="center">
+   <a href="https://github.com/react-native-community/releases/blob/master/CHANGELOG.md"><img src="https://img.shields.io/github/package-json/dependency-version/chatwoot/chatwoot-mobile-app/react-native?color=%2361dafb" alt="Project Dependencies"></a>
+  <img src="https://img.shields.io/discord/647412545203994635" alt="Discord">
+  <a href="https://discord.gg/cJXdrwS"><img src="https://img.shields.io/badge/chat-Discord-violet?logo=discord" alt="Chat on Discord"></a>
+   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Chat on Discord"></a>
+ <img src="https://img.shields.io/github/license/chatwoot/chatwoot-mobile-app" alt="License">
+</p>
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- **Supported Chatwoot version:** 2.16.0+
+- **Supported iOS versions**: 11+ 
+- **Supported Android versions**: 5.0+
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Features
 
-```bash
-# using npm
-npm start
+- Do not miss out on the new customers
+- Follow up on customer conversations on go
+- Reply easily with canned responses
+- Receive realtime notifications about system activities
+- Communicate with other team members via private notes
+- Assign statuses to your conversations
+  ... and more to come!
 
-# OR using Yarn
-yarn start
-```
+<p float="left">
+  <img src=".github/conversation.png" alt="conversations" width="250">
+  <img src=".github/chat.png" alt="chat" width="250">
+  <img src=".github/details.png" alt="details"width="250">
+  <img src=".github/filter.png" alt="filter" width="250">
+  <img src=".github/notification.png" alt="notification"width="250">
+  <img src=".github/settings.png" alt="settings"width="250">
+</p>
 
-## Step 2: Start your Application
+## Download Android/iOS application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+<p >
+  <a href="https://apps.apple.com/app/id1495796682">
+    <img alt="Download on the App Store" title="App Store" src="http://i.imgur.com/0n2zqHD.png" width="140">
+  </a>
 
-### For Android
+  <a href="https://play.google.com/store/apps/details?id=com.chatwoot.app&hl=en">
+    <img alt="Get it on Google Play" title="Google Play" src="http://i.imgur.com/mtGRPuM.png" width="140">
+  </a>
+</p>
 
-```bash
-# using npm
-npm run android
+## Testing
 
-# OR using Yarn
-yarn android
-```
+To help with testing app updates before they're released, you can:
 
-### For iOS
+Sign up to be a beta tester
 
-```bash
-# using npm
-npm run ios
+   - [Android](https://play.google.com/apps/testing/com.chatwoot.app) -  Open this link from your Android device
+   - [iOS](https://testflight.apple.com/join/yQ4yoSx4) - Open this link from your iOS device
+   
+You can leave the Beta testing program at any time:
+- On Android, [click this link](https://play.google.com/apps/testing/com.chatwoot.app) while logged in with your Google Play email address used to opt-in for the Beta program, then click **Leave the program**. 
+- On iOS, access the `Chatwoot` app page in TestFlight and click **Stop Testing**.
 
-# OR using Yarn
-yarn ios
-```
+## Feedback & Contributing
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Feel free to send us feedback on [Twitter](https://twitter.com/chatwootapp) or [file an issue](https://github.com/chatwoot/chatwoot-mobile-app/issues).
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+If you wish to contribute, please take a quick look at the [CONTRIBUTING.md](https://www.chatwoot.com/docs/contributing-guide) and [SETUP_GUIDE.md](https://www.chatwoot.com/docs/contributing-guide/mobile-app/setup-guide).
+ 
+If you want to self deploy the Chatwoot mobile app, please take a look at the [CUSTOM_RELEASE_GUIDE.md](https://www.chatwoot.com/docs/contributing-guide/mobile-app/custom-release-guide) guide.
 
-## Step 3: Modifying your App
+If there's anything you'd like to chat about, please feel free to join our [Discord](https://discord.gg/cJXdrwS) chat!
 
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# chatwoot-mobile-app-upgrade-0.72.x
+_Chatwoot_ &copy; 2017-2023, Chatwoot Inc - Released under the MIT License.

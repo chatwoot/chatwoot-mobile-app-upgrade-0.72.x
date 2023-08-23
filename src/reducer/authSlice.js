@@ -7,8 +7,7 @@ import { showToast } from 'helpers/ToastHelper';
 import { getHeaders } from 'helpers/AuthHelper';
 import { getBaseUrl } from 'helpers/UrlHelper';
 import { API_URL } from 'constants/url';
-//TODO: uncomment this
-// import { updateAgentsPresence } from 'reducer/inboxAgentsSlice';
+import { updateAgentsPresence } from 'reducer/inboxAgentsSlice';
 
 export const actions = {
   doLogin: createAsyncThunk('auth/doLogin', async ({ email, password }, { rejectWithValue }) => {

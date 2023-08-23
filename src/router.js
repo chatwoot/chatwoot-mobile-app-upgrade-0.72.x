@@ -13,12 +13,12 @@ import { NavigationContainer, useNavigationContainerRef } from '@react-navigatio
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ConfigureURLScreen from './screens/ConfigureURLScreen/ConfigureURLScreen';
 import LoginScreen from './screens/LoginScreen/LoginScreen';
-// import ChatScreen from './screens/ChatScreen/ChatScreen';
+import ChatScreen from './screens/ChatScreen/ChatScreen';
 import ResetPassword from './screens/ForgotPassword/ForgotPassword';
-// import ImageScreen from './screens/ChatScreen/ImageScreen';
-// import ConversationDetailsScreen from './screens/ConversationDetails/ConversationDetailsScreen';
-// import ConversationAction from './screens/ConversationAction/ConversationAction';
-// import TabStack from './components/TabBar';
+import ImageScreen from './screens/ChatScreen/ImageScreen';
+import ConversationDetailsScreen from './screens/ConversationDetails/ConversationDetailsScreen';
+import ConversationAction from './screens/ConversationAction/ConversationAction';
+import TabStack from './components/TabBar';
 import i18n from 'i18n';
 import { navigationRef } from 'helpers/NavigationHelper';
 import { findConversationLinkFromPush } from './helpers/PushHelper';
@@ -137,7 +137,7 @@ const App = () => {
 
       return () => {
         subscription.remove();
-        unsubscribeNotification();
+        // unsubscribeNotification();
       };
     },
   };
@@ -171,10 +171,7 @@ const App = () => {
           theme={theme}>
           <BottomSheetModalProvider>
             <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="Login" component={LoginScreen} />
-              <Stack.Screen name="ResetPassword" component={ResetPassword} />
-              <Stack.Screen name="ConfigureURL" component={ConfigureURLScreen} />
-              {/* {isLoggedIn ? (
+              {isLoggedIn ? (
                 <Fragment>
                   <Stack.Screen name="Tab" component={TabStack} />
                   <Stack.Screen name="ChatScreen" component={ChatScreen} />
@@ -188,7 +185,7 @@ const App = () => {
                   <Stack.Screen name="Login" component={LoginScreen} />
                   <Stack.Screen name="ResetPassword" component={ResetPassword} />
                 </Fragment>
-              )} */}
+              )}
             </Stack.Navigator>
           </BottomSheetModalProvider>
         </NavigationContainer>
