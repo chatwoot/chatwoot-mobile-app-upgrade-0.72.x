@@ -79,8 +79,8 @@ android {
         applicationId "com.chatwoot.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5182
-        versionName "1.10.10"
+        versionCode 5183
+        versionName "1.10.11"
     }
     lintOptions {
         checkReleaseBuilds false
@@ -134,3 +134,4 @@ dependencies {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply from: "../../node_modules/@sentry/react-native/sentry.gradle"

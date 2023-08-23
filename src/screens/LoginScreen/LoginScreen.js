@@ -5,8 +5,7 @@ import { View, Image, TouchableOpacity, SafeAreaView, Dimensions } from 'react-n
 import PropTypes from 'prop-types';
 import { useForm, Controller } from 'react-hook-form';
 import BottomSheetModal from 'components/BottomSheet/BottomSheet';
-//TODO: Uncomment this
-// import LanguageSelector from '../Settings/components/LanguageSelector';
+import LanguageSelector from '../Settings/components/LanguageSelector';
 import { StackActions } from '@react-navigation/native';
 import AnalyticsHelper from 'helpers/AnalyticsHelper';
 import { ACCOUNT_EVENTS } from 'constants/analyticsEvents';
@@ -233,7 +232,7 @@ const LoginScreenComponent = ({ navigation }) => {
                 </Text>
               </TouchableOpacity>
             </View>
-            {/* <BottomSheetModal
+            <BottomSheetModal
               bottomSheetModalRef={changeLanguageModal}
               initialSnapPoints={changeLanguageModalModalSnapPoints}
               showHeader
@@ -246,7 +245,7 @@ const LoginScreenComponent = ({ navigation }) => {
                   onPress={onChangeLanguage}
                 />
               }
-            /> */}
+            />
           </View>
         </View>
       </ScrollView>

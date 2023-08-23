@@ -3,12 +3,12 @@ import { Provider } from 'react-redux';
 import { Alert, BackHandler, StatusBar, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { PersistGate } from 'redux-persist/integration/react';
-// import * as Sentry from '@sentry/react-native';
-// import NoNetworkBar from 'components/NoNetworkBar';
-// import ErrorHelper from 'helpers/ErrorHelper';
+import * as Sentry from '@sentry/react-native';
+import NoNetworkBar from 'components/NoNetworkBar';
+import ErrorHelper from 'helpers/ErrorHelper';
 import Router from './router';
 import { store, persistor } from './store';
-// import i18n from './i18n/index';
+import i18n from './i18n/index';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
 const Chatwoot = () => {
   useEffect(() => {
-    // ErrorHelper.init();
+    ErrorHelper.init();
   }, []);
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
@@ -26,20 +26,20 @@ const Chatwoot = () => {
     };
   }, []);
   const handleBackButtonClick = () => {
-    // Alert.alert(
-    //   i18n.t('EXIT.TITLE'),
-    //   i18n.t('EXIT.SUBTITLE'),
-    //   [
-    //     {
-    //       text: i18n.t('EXIT.CANCEL'),
-    //       onPress: () => {},
-    //       style: 'cancel',
-    //     },
-    //     { text: i18n.t('EXIT.OK'), onPress: () => BackHandler.exitApp() },
-    //   ],
-    //   { cancelable: false },
-    // );
-    // return true;
+    Alert.alert(
+      i18n.t('EXIT.TITLE'),
+      i18n.t('EXIT.SUBTITLE'),
+      [
+        {
+          text: i18n.t('EXIT.CANCEL'),
+          onPress: () => {},
+          style: 'cancel',
+        },
+        { text: i18n.t('EXIT.OK'), onPress: () => BackHandler.exitApp() },
+      ],
+      { cancelable: false },
+    );
+    return true;
   };
   return (
     <GestureHandlerRootView style={styles.container}>
@@ -47,7 +47,7 @@ const Chatwoot = () => {
         <StatusBar barStyle="dark-content" backgroundColor="white" />
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            {/* <NoNetworkBar /> */}
+            <NoNetworkBar />
             <Router />
           </PersistGate>
         </Provider>
@@ -55,5 +55,4 @@ const Chatwoot = () => {
     </GestureHandlerRootView>
   );
 };
-// export default Sentry.wrap(Chatwoot);
-export default Chatwoot;
+export default Sentry.wrap(Chatwoot);
