@@ -26,6 +26,8 @@ if linkage != nil
 end
 
 target 'Chatwoot' do
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true;
   config = use_native_modules!
 
   # Flags change depending on the env values.

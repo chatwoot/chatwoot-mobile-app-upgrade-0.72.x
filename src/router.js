@@ -1,7 +1,7 @@
 import React, { useRef, Fragment, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { SafeAreaView, KeyboardAvoidingView, Platform, Linking, StyleSheet } from 'react-native';
-// import messaging from '@react-native-firebase/messaging';
+import messaging from '@react-native-firebase/messaging';
 import { getStateFromPath } from '@react-navigation/native';
 
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
@@ -36,7 +36,7 @@ const defaultProps = {
   isLoggedIn: false,
 };
 // TODO
-// messaging().setBackgroundMessageHandler(async remoteMessage => {});
+messaging().setBackgroundMessageHandler(async remoteMessage => {});
 
 const App = () => {
   // TODO: Lets use light theme for now, add dark theme later
@@ -107,14 +107,14 @@ const App = () => {
       }
 
       // Handle notification caused app to open from quit state:
-      // const message = await messaging().getInitialNotification();
-      // if (message) {
-      //   const { notification } = message.data;
-      //   const conversationLink = findConversationLinkFromPush({ notification, installationUrl });
-      //   if (conversationLink) {
-      //     return conversationLink;
-      //   }
-      // }
+      const message = await messaging().getInitialNotification();
+      if (message) {
+        const { notification } = message.data;
+        const conversationLink = findConversationLinkFromPush({ notification, installationUrl });
+        if (conversationLink) {
+          return conversationLink;
+        }
+      }
       return undefined;
     },
     subscribe(listener) {
@@ -124,20 +124,20 @@ const App = () => {
       const subscription = Linking.addEventListener('url', onReceiveURL);
 
       // Handle notification caused app to open from background state
-      // const unsubscribeNotification = messaging().onNotificationOpenedApp(message => {
-      //   if (message) {
-      //     const { notification } = message.data;
+      const unsubscribeNotification = messaging().onNotificationOpenedApp(message => {
+        if (message) {
+          const { notification } = message.data;
 
-      //     const conversationLink = findConversationLinkFromPush({ notification, installationUrl });
-      //     if (conversationLink) {
-      //       listener(conversationLink);
-      //     }
-      //   }
-      // });
+          const conversationLink = findConversationLinkFromPush({ notification, installationUrl });
+          if (conversationLink) {
+            listener(conversationLink);
+          }
+        }
+      });
 
       return () => {
         subscription.remove();
-        // unsubscribeNotification();
+        unsubscribeNotification();
       };
     },
   };

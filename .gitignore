@@ -64,3 +64,20 @@ yarn-error.log
 
 # testing
 /coverage
+
+
+# Android release configuration
+android/api-fastlane.json
+android/gradle.properties
+# Firebase 
+android/app/google-services.json
+ios/GoogleService-Info.plist
+
+
+
+# Sentry configuration
+sentry.js
+ios/sentry.properties
+android/sentry.properties
+
+GoogleService-Info.plist

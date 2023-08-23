@@ -1,5 +1,5 @@
 import { createSlice, createEntityAdapter, createAsyncThunk } from '@reduxjs/toolkit';
-// import messaging from '@react-native-firebase/messaging';
+import messaging from '@react-native-firebase/messaging';
 import axios from 'axios';
 import {
   getUniqueId,
@@ -79,46 +79,47 @@ export const actions = {
     'notifications/saveDeviceDetails',
     async (_, { rejectWithValue }) => {
       try {
-        // const permissionEnabled = await messaging().hasPermission();
-        // const fcmToken = await messaging().getToken();
-        // const deviceId = getUniqueId();
-        // const devicePlatform = getSystemName();
-        // const manufacturer = await getManufacturer();
-        // const model = await getModel();
-        // const apiLevel = await getApiLevel();
-        // const deviceName = `${manufacturer} ${model}`;
-        // const brandName = await getBrand();
-        // const buildNumber = await getBuildNumber();
+        const permissionEnabled = await messaging().hasPermission();
 
-        // if (!permissionEnabled || permissionEnabled === -1) {
-        //   await messaging().requestPermission();
-        //   AnalyticsHelper.track(CONVERSATION_EVENTS.APPLY_FILTER, {
-        //     devicePlatform,
-        //     deviceName,
-        //     brandName,
-        //     buildNumber,
-        //   });
-        // }
+        const fcmToken = await messaging().getToken();
 
-        // const pushData = {
-        //   subscription_type: 'fcm',
-        //   subscription_attributes: {
-        //     deviceName,
-        //     devicePlatform,
-        //     apiLevel,
-        //     brandName,
-        //     buildNumber,
-        //     push_token: fcmToken,
-        //     device_id: deviceId,
-        //   },
-        // };
-        // const headers = await getHeaders();
-        // const baseURL = await getBaseUrl();
-        // await axios.post(`${baseURL}${API_URL}notification_subscriptions`, pushData, {
-        //   headers: headers,
-        // });
-        // return { fcmToken };
-        return {};
+        const deviceId = getUniqueId();
+        const devicePlatform = getSystemName();
+        const manufacturer = await getManufacturer();
+        const model = await getModel();
+        const apiLevel = await getApiLevel();
+        const deviceName = `${manufacturer} ${model}`;
+        const brandName = await getBrand();
+        const buildNumber = await getBuildNumber();
+
+        if (!permissionEnabled || permissionEnabled === -1) {
+          await messaging().requestPermission();
+          AnalyticsHelper.track(CONVERSATION_EVENTS.APPLY_FILTER, {
+            devicePlatform,
+            deviceName,
+            brandName,
+            buildNumber,
+          });
+        }
+
+        const pushData = {
+          subscription_type: 'fcm',
+          subscription_attributes: {
+            deviceName,
+            devicePlatform,
+            apiLevel,
+            brandName,
+            buildNumber,
+            push_token: fcmToken,
+            device_id: deviceId,
+          },
+        };
+        const headers = await getHeaders();
+        const baseURL = await getBaseUrl();
+        await axios.post(`${baseURL}${API_URL}notification_subscriptions`, pushData, {
+          headers: headers,
+        });
+        return { fcmToken };
       } catch (error) {
         return rejectWithValue(error);
       }
