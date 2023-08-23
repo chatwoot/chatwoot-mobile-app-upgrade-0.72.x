@@ -5,7 +5,7 @@ import messaging from '@react-native-firebase/messaging';
 import { getStateFromPath } from '@react-navigation/native';
 
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-// import RNBootSplash from 'react-native-bootsplash';
+import RNBootSplash from 'react-native-bootsplash';
 import PropTypes from 'prop-types';
 import { useFlipper } from '@react-navigation/devtools';
 import { LightTheme } from './theme';
@@ -156,7 +156,7 @@ const App = () => {
           ref={navigationRef}
           onReady={() => {
             routeNameRef.current = navigationRef.current.getCurrentRoute().name;
-            // RNBootSplash.hide({ fade: true });
+            RNBootSplash.hide({ fade: true });
           }}
           onStateChange={async () => {
             const previousRouteName = routeNameRef.current;
