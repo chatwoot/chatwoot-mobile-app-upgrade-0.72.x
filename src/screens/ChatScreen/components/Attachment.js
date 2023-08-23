@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useCallback } from 'react';
 import { useTheme } from '@react-navigation/native';
-// import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { Icon, Pressable } from 'components';
 import { Keyboard, StyleSheet, Dimensions, View } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
@@ -47,18 +47,18 @@ const Attachment = ({ conversationId, onSelectAttachment }) => {
     }, 10);
   };
   const openCamera = () => {
-    // launchCamera(imagePickerOptions, response => {
-    //   if (response.uri) {
-    //     onSelectAttachment({ attachment: response });
-    //   }
-    // });
+    launchCamera(imagePickerOptions, response => {
+      if (response.uri) {
+        onSelectAttachment({ attachment: response });
+      }
+    });
   };
   const openGallery = () => {
-    // launchImageLibrary(imagePickerOptions, response => {
-    //   if (response.uri) {
-    //     onSelectAttachment({ attachment: response });
-    //   }
-    // });
+    launchImageLibrary(imagePickerOptions, response => {
+      if (response.uri) {
+        onSelectAttachment({ attachment: response });
+      }
+    });
   };
   const openDocument = async () => {
     try {

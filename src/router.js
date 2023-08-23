@@ -142,7 +142,7 @@ const App = () => {
     },
   };
 
-  i18n.locale = 'en';
+  i18n.locale = locale
   const styles = useMemo(() => createStyles(theme), [theme]);
 
   return (
