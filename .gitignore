@@ -69,6 +69,7 @@ yarn-error.log
 # Android release configuration
 android/api-fastlane.json
 android/gradle.properties
+android/app/gradle.properties
 # Firebase 
 android/app/google-services.json
 ios/GoogleService-Info.plist
